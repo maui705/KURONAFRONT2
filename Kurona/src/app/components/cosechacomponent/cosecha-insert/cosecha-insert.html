@@ -1,0 +1,39 @@
+<div class="container">
+  <div style="text-align: center; margin: 3%"><h2>Registrar Cosechas</h2></div>
+  <div style="text-align: center; margin: 3%">
+    <form [formGroup]="form" (submit)="aceptar()">
+      <mat-form-field class="example-full-width">
+        <mat-label>Cantidad Cosecha</mat-label>
+        <input matInput placeholder="CantCosechas" formControlName="cantidad" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Estado Cosecha</mat-label>
+        <textarea matInput formControlName="estadoCosecha"></textarea>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Firma Electronica</mat-label>
+        <textarea matInput formControlName="firmaElectronica"></textarea>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Responsable</mat-label>
+        <textarea matInput formControlName="responsable"></textarea>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Metodos</mat-label>
+        <textarea matInput formControlName="metodos"></textarea>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Id lote</mat-label>
+        <textarea matInput formControlName="loteId"></textarea>
+      </mat-form-field>
+      <div>
+        <button matButton="elevated" type="submit">Registrar</button>
+      </div>
+    </form>
+  </div>
+</div>

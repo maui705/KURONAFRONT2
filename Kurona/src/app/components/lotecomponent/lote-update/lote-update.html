@@ -1,0 +1,46 @@
+<div class="container">
+    <div><h2>Actualizar Lote </h2> </div>
+    <div>
+        <form [formGroup]="form"(submit)="aceptar()">
+
+
+            <mat-form-field class="example-full-width">
+                <mat-label>ID</mat-label>
+                <input matInput formControlName="codigo" readonly="true"/>
+            </mat-form-field>
+
+
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Ubicacion</mat-label>
+                <input matInput placeholder="DevMovileApp" formControlName="ubicacion" />
+            </mat-form-field>
+            <br>
+            <mat-form-field>    
+                <mat-label>tamaño</mat-label>
+                <textarea matInput formControlName="tamaño"></textarea>
+            </mat-form-field>
+
+            <br>
+            <mat-form-field>    
+                <mat-label>Variedad de Cafe</mat-label>
+                <textarea matInput formControlName="variedadCafe"></textarea>
+            </mat-form-field>
+
+              <br>
+            <mat-form-field>    
+                <mat-label>Observación</mat-label>
+                <textarea matInput formControlName="observacion"></textarea>
+            </mat-form-field>
+               <br>
+            <mat-form-field>    
+                <mat-label>Estado</mat-label>
+                <textarea matInput formControlName="estado"></textarea>
+            </mat-form-field>
+            <div class="example-button-row">
+                <button matButton="elevated">Actualizar</button>
+            </div>
+        </form>
+    </div>
+</div>
+

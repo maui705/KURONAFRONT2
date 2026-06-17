@@ -1,0 +1,36 @@
+<div class="container">
+  <div style="text-align: center; margin: 3%"><h2>Registrar Lote</h2></div>
+  <div style="text-align: center; margin: 3%">
+    <form [formGroup]="form" (submit)="aceptar()">
+
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Ubicacion Lote</mat-label>
+        <input matInput placeholder="Ubicacion" formControlName="ubicacion" />
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Tamaño</mat-label>
+        <textarea matInput formControlName="tamaño"></textarea>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Variedad de Café</mat-label>
+        <textarea matInput formControlName="variedadCafe"></textarea>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label> Observacion</mat-label>
+        <textarea matInput formControlName="observacion"></textarea>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>estado</mat-label>
+        <textarea matInput formControlName="estado"></textarea>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button color="primary" type="submit">Registrar</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="container">
+  <h2>Lista de Lotes</h2>
+  <div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!--- Note that these columns can be defined in any order.
+
+    The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+
+      <ng-container matColumnDef="c1">
+        <th mat-header-cell *matHeaderCellDef>Id lote</th>
+
+        <td mat-cell *matCellDef="let element">{{ element.loteId}}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+
+      <ng-container matColumnDef="c2">
+        <th mat-header-cell *matHeaderCellDef>Ubicación</th>
+
+        <td mat-cell *matCellDef="let element">{{ element.ubicacion }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+
+      <ng-container matColumnDef="c3">
+        <th mat-header-cell *matHeaderCellDef>Tamaño</th>
+
+        <td mat-cell *matCellDef="let element">{{ element['tamaño'] }}</td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+
+      <ng-container matColumnDef="c4">
+        <th mat-header-cell *matHeaderCellDef>Variedad de Cafe</th>
+
+        <td mat-cell *matCellDef="let element">{{ element.variedadCafe }}</td>
+      </ng-container>
+      <!-- Symbol Column -->
+
+      <ng-container matColumnDef="c5">
+        <th mat-header-cell *matHeaderCellDef>Observación</th>
+
+        <td mat-cell *matCellDef="let element">{{ element.observacion }}</td>
+      </ng-container>
+      <!-- Symbol Column -->
+
+      <ng-container matColumnDef="c6">
+        <th mat-header-cell *matHeaderCellDef>estado</th>
+
+        <td mat-cell *matCellDef="let element">{{ element.estado }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c7">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="warn"(click)="eliminar(element.loteId)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+                  <!-- Update Column -->
+             <ng-container matColumnDef="c8">
+                <th mat-header-cell *matHeaderCellDef> Actualizar </th>
+                <td mat-cell *matCellDef="let element"> 
+                        <button matButton [routerLink] = "['/lote/actualizar-lote', element.loteId]" class = "btn-actualizar">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                </td>
+            </ng-container>
+     
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>
