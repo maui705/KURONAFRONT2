@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/enviroment.develoments';
 import { HttpClient } from '@angular/common/http';
-import { Lote } from '../models/Lote';
+import { Lote } from '../models/lote';
 
 const base_url = environment.base
 

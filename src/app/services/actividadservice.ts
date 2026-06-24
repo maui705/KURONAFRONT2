@@ -1,7 +1,11 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Actividad } from "../models/Actividad";
+<<<<<<< HEAD
 import { environment } from "../../environments/enviroment.develoments";
+=======
+import { environment } from "../../environments/environment.development";
+>>>>>>> 705ecc2e07b50bb735d6edb7e14f4e666295a4e8
 
 const base_url = environment.base
 @Injectable({

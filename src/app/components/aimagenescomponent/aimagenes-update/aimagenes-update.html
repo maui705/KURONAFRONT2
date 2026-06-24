@@ -36,7 +36,11 @@
         <div class="form-grid">
           <mat-form-field appearance="fill">
             <mat-label>Fecha de Análisis</mat-label>
+<<<<<<< HEAD
             <input matInput [matDatepicker]="pickerAnalisis" formControlName="fechaAnalisis"//SE BORRA EL MINDATE>
+=======
+            <input matInput [matDatepicker]="pickerAnalisis" formControlName="fechaAnalisis">
+>>>>>>> 705ecc2e07b50bb735d6edb7e14f4e666295a4e8
             <mat-datepicker-toggle matIconSuffix [for]="pickerAnalisis"></mat-datepicker-toggle>
             <mat-datepicker #pickerAnalisis></mat-datepicker>
             <mat-error *ngIf="form.get('fechaAnalisis')?.hasError('required') && form.get('fechaAnalisis')?.touched">

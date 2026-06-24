@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # Trabajofrontend
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.6.
+=======
+# DemoFront9233
+
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+>>>>>>> 705ecc2e07b50bb735d6edb7e14f4e666295a4e8
 
 ## Development server
 
