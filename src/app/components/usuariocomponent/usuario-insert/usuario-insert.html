@@ -1,0 +1,83 @@
+<div class="container">
+    <div><h2>Registrar Usuario</h2> </div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+
+
+            <br>
+            <mat-form-field class="example-full-width">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Nombre" formControlName="name">
+                <mat-error *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched">
+                    El nombre es obligatorio.
+                </mat-error>
+                <mat-error *ngIf="form.get('name')?.hasError('maxlength') && form.get('name')?.touched">
+                    Máximo 100 caracteres.
+                </mat-error>
+            </mat-form-field>
+
+
+
+            <br>
+            <mat-form-field>    
+                <mat-label>extras</mat-label>
+                <textarea matInput formControlName="extras"></textarea>
+                <mat-error *ngIf="form.get('extras')?.hasError('required') && form.get('extras')?.touched">
+                    La paga extra es obligatoria.
+                </mat-error>
+            </mat-form-field>
+
+
+            <br>
+            <mat-form-field>    
+                <mat-label>apellido</mat-label>
+                <textarea matInput formControlName="apellido"></textarea>
+                <mat-error *ngIf="form.get('apellido')?.hasError('required') && form.get('apellido')?.touched">
+                    El apellido es obligatorio.
+                </mat-error>
+            </mat-form-field>
+
+
+              <br>
+            <mat-form-field>    
+                <mat-label>email</mat-label>
+                <textarea matInput formControlName="email"></textarea>
+                <mat-error *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">
+                    El email es obligatorio.
+                </mat-error>
+            </mat-form-field>
+
+
+               <br>
+            <mat-form-field>    
+                <mat-label>password</mat-label>
+                <textarea matInput formControlName="password"></textarea>
+                <mat-error *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched">
+                    La contraseña es obligatoria.
+                </mat-error>
+            </mat-form-field>
+
+
+             <br>
+            <mat-form-field>
+                <mat-label>Fecha de registro</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="fechaRegistro">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+
+
+             <br>
+            <mat-radio-group aria-label="Select an option" formControlName="estado">
+                <mat-radio-button [value]="true">Activo</mat-radio-button>
+                <mat-radio-button [value]="false">Inactivo</mat-radio-button>
+            </mat-radio-group>
+
+
+            <div class="example-button-row">
+                <button matButton="elevated">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>
