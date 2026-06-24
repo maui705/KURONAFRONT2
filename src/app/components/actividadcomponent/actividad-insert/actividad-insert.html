@@ -1,0 +1,125 @@
+<div class="container">
+  <div>
+    <h2>Registrar Actividad</h2>
+  </div>
+
+  <div>
+    <form [formGroup]="form" (ngSubmit)="aceptar()">
+
+      <br>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Descripción</mat-label>
+        <textarea
+          matInput
+          placeholder="Ingrese la descripción"
+          formControlName="descripcion"
+          rows="4">
+        </textarea>
+
+        <mat-error *ngIf="form.get('descripcion')?.hasError('required') && form.get('descripcion')?.touched">
+          La descripción es obligatoria.
+        </mat-error>
+
+        <mat-error *ngIf="form.get('descripcion')?.hasError('maxlength') && form.get('descripcion')?.touched">
+          Máximo 100 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha de inicio</mat-label>
+        <input
+          matInput
+          [matDatepicker]="pickerInicio"
+          formControlName="fechaInicio"
+          [min]="hoy">
+
+        <mat-hint>DD/MM/YYYY</mat-hint>
+
+        <mat-datepicker-toggle matIconSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+        <mat-datepicker #pickerInicio></mat-datepicker>
+
+        <mat-error *ngIf="form.get('fechaInicio')?.hasError('required') && form.get('fechaInicio')?.touched">
+          La fecha de inicio es obligatoria.
+        </mat-error>
+
+        <mat-error *ngIf="form.get('fechaInicio')?.hasError('matDatepickerMin') && form.get('fechaInicio')?.touched">
+          La fecha de inicio no puede ser anterior al día de hoy.
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha de fin</mat-label>
+        <input
+          matInput
+          [matDatepicker]="pickerFin"
+          formControlName="fechaFin"
+          [min]="form.value.fechaInicio || hoy">
+
+        <mat-hint>DD/MM/YYYY</mat-hint>
+
+        <mat-datepicker-toggle matIconSuffix [for]="pickerFin"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFin></mat-datepicker>
+
+        <mat-error *ngIf="form.get('fechaFin')?.hasError('required') && form.get('fechaFin')?.touched">
+          La fecha de fin es obligatoria.
+        </mat-error>
+
+        <mat-error *ngIf="form.get('fechaFin')?.hasError('matDatepickerMin') && form.get('fechaFin')?.touched">
+          La fecha de fin no puede ser anterior a la fecha de inicio.
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+
+   <mat-form-field appearance="outline" class="example-full-width">
+      <mat-label>Estado</mat-label>
+
+      <mat-select formControlName="estado">
+      <mat-option value="Pendiente">Pendiente</mat-option>
+      <mat-option value="En proceso">En proceso</mat-option>
+      <mat-option value="Finalizado">Finalizado</mat-option>
+    </mat-select>
+
+      <mat-error *ngIf="form.get('estado')?.hasError('required') && form.get('estado')?.touched">
+       El estado es obligatorio.
+       </mat-error>
+    </mat-form-field>
+
+      <br>
+
+      <mat-form-field class="example-full-width">
+  <mat-label>Código de usuario</mat-label>
+  <input matInput type="number" formControlName="usuarioCodigo">
+
+  <mat-error *ngIf="form.get('usuarioCodigo')?.hasError('required') && form.get('usuarioCodigo')?.touched">
+    El código de usuario es obligatorio.
+  </mat-error>
+</mat-form-field>
+
+<br>
+
+<mat-form-field class="example-full-width">
+  <mat-label>Código de lote</mat-label>
+  <input matInput type="number" formControlName="loteCodigo">
+
+  <mat-error *ngIf="form.get('loteCodigo')?.hasError('required') && form.get('loteCodigo')?.touched">
+    El código de lote es obligatorio.
+  </mat-error>
+</mat-form-field>
+
+      <br>
+
+      <div class="example-button-row">
+        <button mat-raised-button color="primary" type="submit">
+          Registrar
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

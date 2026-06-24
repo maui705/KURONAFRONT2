@@ -1,0 +1,63 @@
+<div class="container">
+  <h2>Lista de Lotes</h2>
+
+  <ng-container *ngIf="dataSource.connect() | async as lotes">
+    <div class="cards-container" *ngIf="lotes.length > 0; else sinDatos">
+      <mat-card class="item-card" *ngFor="let element of lotes">
+        <mat-card-content>
+          <h3>{{ element.variedadCafe }}</h3>
+
+          <p>
+            <strong>Ubicación:</strong>
+            {{ element.ubicacion }}
+          </p>
+
+          <p>
+            <strong>Tamaño:</strong>
+            {{ element['tamaño'] }}
+          </p>
+
+          <p>
+            <strong>Observación:</strong>
+            {{ element.observacion }}
+          </p>
+
+          <p>
+            <strong>Estado:</strong>
+            {{ element.estado }}
+          </p>
+        </mat-card-content>
+
+        <mat-card-actions class="acciones">
+          <button
+            mat-button
+            color="warn"
+            (click)="eliminar(element.loteId)"
+          >
+            <mat-icon>delete</mat-icon>
+            Eliminar
+          </button>
+
+          <button
+            mat-button
+            color="primary"
+            [routerLink]="['/lote/actualizar-lote', element.loteId]"
+          >
+            <mat-icon>edit</mat-icon>
+            Actualizar
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </ng-container>
+
+  <ng-template #sinDatos>
+    <p class="mensaje-vacio">No hay lotes registrados.</p>
+  </ng-template>
+
+  <mat-paginator
+    [pageSize]="5"
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons>
+  </mat-paginator>
+</div>

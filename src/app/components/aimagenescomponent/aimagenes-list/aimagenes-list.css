@@ -1,0 +1,62 @@
+.list-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.list-container h2 {
+    margin-bottom: 1.5rem;
+}
+
+.no-data {
+    text-align: center;
+    padding: 3rem;
+    color: #666;
+    font-size: 1.1rem;
+    font-style: italic;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.cards-grid {
+    display: grid;
+    /* Crea columnas responsivas: mínimo 320px de ancho, máximo lo que sobre (1fr) */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.analisis-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Hace que las tarjetas en la misma fila tengan la misma altura */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.analisis-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.card-content {
+    margin-top: 1rem;
+    flex-grow: 1; /* Empuja los botones siempre hacia el fondo de la tarjeta */
+}
+
+.card-content h4 {
+    margin: 0 0 8px 0;
+    color: #f44336; /* Un rojo para que combine con el topbar de tu imagen */
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.card-content p {
+    color: #444;
+    line-height: 1.5;
+    text-align: justify;
+    margin: 0;
+}
+
+.card-actions {
+    border-top: 1px solid #eee;
+    padding-top: 8px !important;
+}

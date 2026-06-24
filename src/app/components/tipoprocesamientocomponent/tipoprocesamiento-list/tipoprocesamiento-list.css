@@ -1,0 +1,66 @@
+.container {
+  padding: 2rem;
+  background: #f5f5f5;
+  min-height: calc(100vh - 64px);
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  color: #c62828;
+}
+
+.list-header mat-icon {
+  font-size: 2rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.list-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.search-bar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.search-bar .full-width {
+  flex: 1;
+}
+
+.btn-buscar {
+  background-color: #c62828;
+  color: white;
+  height: 56px;
+}
+
+.btn-limpiar {
+  background-color: #757575;
+  color: white;
+  height: 56px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.item-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.empty-msg {
+  text-align: center;
+  color: #757575;
+  padding: 2rem;
+}

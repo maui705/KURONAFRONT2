@@ -1,0 +1,54 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.analisis-card {
+    max-width: 600px;
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.imagen-upload-section {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.upload-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.error-text {
+    color: #f44336;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+.loading-text {
+    color: #3f51b5;
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.radio-section {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

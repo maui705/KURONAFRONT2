@@ -1,0 +1,87 @@
+<div class="container">
+  <div>
+    <h2>Actualizar Rol</h2>
+  </div>
+
+  <div>
+    <form [formGroup]="form" (ngSubmit)="aceptar()">
+      
+      <mat-form-field class="example-full-width">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="codigo" readonly="true"/>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Rol</mat-label>
+        <input matInput placeholder="Ingrese el rol" formControlName="rol">
+        <mat-error *ngIf="form.get('rol')?.hasError('required') && form.get('rol')?.touched">
+          El rol es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('rol')?.hasError('maxlength') && form.get('rol')?.touched">
+          Máximo 100 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Descripcion</mat-label>
+        <input matInput placeholder="Ingrese la descripcion" formControlName="descripcion">
+        <mat-error *ngIf="form.get('descripcion')?.hasError('required') && form.get('descripcion')?.touched">
+          La descripción es obligatoria.
+        </mat-error>
+        <mat-error *ngIf="form.get('descripcion')?.hasError('maxlength') && form.get('descripcion')?.touched">
+          Máximo 100 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+
+      <br>
+      <mat-form-field>
+        <mat-label>Sueldo</mat-label>
+        <input matInput type="number" formControlName="sueldo" placeholder="Sueldo">
+        <mat-error *ngIf="form.get('sueldo')?.hasError('required') && form.get('sueldo')?.touched">
+          El sueldo es obligatorio.
+        </mat-error>
+      </mat-form-field>
+      
+
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Permisos</mat-label>
+        <input matInput placeholder="Ingrese los permisos" formControlName="permisos">
+        <mat-error *ngIf="form.get('permisos')?.hasError('required') && form.get('permisos')?.touched">
+          Los permisos son obligatorios.
+        </mat-error>
+        <mat-error *ngIf="form.get('permisos')?.hasError('maxlength') && form.get('permisos')?.touched">
+          Máximo 100 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+
+      <br>
+      <mat-form-field>
+        <mat-label>Fecha de creación</mat-label>
+        <input matInput [value]="form.get('fechaCreacion')?.value | date:'dd/MM/yyyy'" readonly>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Código de usuario</mat-label>
+        <input matInput type="number" formControlName="user_id">
+        <mat-error *ngIf="form.get('user_id')?.hasError('required') && form.get('user_id')?.touched">
+          El código del usuario es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+      <div class="example-button-row">
+        <button mat-raised-button color="primary" type="submit">
+          Actualizar
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
