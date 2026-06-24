@@ -1,0 +1,98 @@
+<div class="container">
+    <h2>Lista de usuarios</h2>
+    <div>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="c1">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.usuario_Id}} </td>
+            </ng-container>
+
+
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="c2">
+                <th mat-header-cell *matHeaderCellDef> Username </th>
+                <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+            </ng-container>
+
+
+
+            <!-- Description Column -->
+            <ng-container matColumnDef="c3">
+                <th mat-header-cell *matHeaderCellDef> Extras </th>
+                <td mat-cell *matCellDef="let element"> {{element.extras}} </td>
+            </ng-container>
+
+
+
+            <!-- Fecha Inicio Column -->
+            <ng-container matColumnDef="c4">
+                <th mat-header-cell *matHeaderCellDef> Apellido </th>
+                <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+            </ng-container>
+
+
+            <!-- Fecha Inicio Column -->
+            <ng-container matColumnDef="c5">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+
+
+            <!-- Fecha Inicio Column -->
+            <ng-container matColumnDef="c6">
+                <th mat-header-cell *matHeaderCellDef> Password </th>
+                <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+            </ng-container>
+
+
+
+            <!-- Status Column -->
+            <ng-container matColumnDef="c7">
+                <th mat-header-cell *matHeaderCellDef> Estado </th>
+                <td mat-cell *matCellDef="let element"> {{ element.estado ? 'Activo' : 'Inactivo'}}    
+                </td>
+            </ng-container>
+
+
+
+            <!-- Fecha Fin Column -->
+            <ng-container matColumnDef="c8">
+                <th mat-header-cell *matHeaderCellDef> Fecha Registro </th>
+                <td mat-cell *matCellDef="let element"> {{element.fechaRegistro | date:'dd/MM/yyyy'}} </td>
+            </ng-container>
+            
+            
+
+            <!-- Delete Column -->
+            <ng-container matColumnDef="c9">
+                <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+                <td mat-cell *matCellDef="let element"> 
+                        <button matButton (click)="eliminar(element.usuario_Id)" class = "btn-eliminar">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                </td>
+            </ng-container>
+
+
+            <!-- Update Column -->
+             <ng-container matColumnDef="c10">
+                <th mat-header-cell *matHeaderCellDef> Actualizar </th>
+                <td mat-cell *matCellDef="let element"> 
+                        <button matButton [routerLink] = "['/usuario/actualizar-usuario', element.usuario_Id]" class = "btn-actualizar">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+    </div>
+</div>

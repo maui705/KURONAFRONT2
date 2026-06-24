@@ -1,0 +1,58 @@
+<div class="list-container">
+    
+    <div class="header-section">
+        <h2>Lista de Análisis de Imágenes</h2>
+        <div class="contador-badge" *ngIf="!cargando">
+            Total de análisis: <strong>{{ listaImagenes.length }}</strong>
+        </div>
+    </div>
+
+    <div *ngIf="cargando" class="no-data">
+        ⏳ Cargando análisis desde la base de datos...
+    </div>
+
+    <div *ngIf="!cargando && listaImagenes.length === 0" class="no-data">
+        No hay análisis registrados en la base de datos.
+    </div>
+
+    <div *ngIf="!cargando && listaImagenes.length > 0" class="cards-grid">
+        
+        <mat-card class="analisis-card" *ngFor="let element of listaPaginada">
+            <mat-card-header>
+                <mat-card-title>ID Lote de la imagen: {{ element.loteId }}</mat-card-title>
+                <mat-card-subtitle>
+                    Fecha de Análisis: {{ element.fechaAnalisis | date:'dd/MM/yyyy' }}
+                </mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content class="card-content">
+                <h4 [ngClass]="{'texto-activo': element.estado, 'texto-inactivo': !element.estado}">
+                    Defectos Encontrados:
+                </h4>
+                <p>{{ element.defectosEncontrados }}</p>
+            </mat-card-content>
+
+            <mat-card-actions align="end" class="card-actions">
+                <button mat-icon-button color="warn" (click)="eliminar(element.idAImagenes)" title="Eliminar">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" [routerLink]="['/aimagenes/actualizar-imagen', element.idAImagenes]" title="Actualizar">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+
+    </div>
+
+    <div class="paginator-container" [hidden]="cargando || listaImagenes.length === 0">
+        <mat-paginator 
+            [length]="listaImagenes.length"
+            [pageSize]="pageSize"
+            [pageIndex]="pageIndex"
+            [pageSizeOptions]="[6, 12, 18]"
+            (page)="cambiarPagina($event)"
+            showFirstLastButtons>
+        </mat-paginator>
+    </div>
+
+</div>

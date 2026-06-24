@@ -1,0 +1,72 @@
+<div class="container">
+
+  <mat-toolbar class="custom-toolbar">
+
+    <button
+      mat-button
+      class="btn-rojo"
+      [matMenuTriggerFor]="menuActividad"
+    >
+      <mat-icon>assessment</mat-icon>
+      KURONA
+    </button>
+
+    <button
+      mat-button
+      class="btn-rojo"
+      [matMenuTriggerFor]="menuUsuario"
+    >
+      <mat-icon>android</mat-icon>
+      Usuario
+    </button>
+
+    <button
+      mat-button
+      class="btn-rojo"
+      [matMenuTriggerFor]="menuAImagenes"
+    >
+      <mat-icon>image</mat-icon>
+      Imagenes
+    </button>
+
+  </mat-toolbar>
+
+  <mat-menu #menuActividad="matMenu">
+    <button mat-menu-item routerLink="/actividad/listar-actividad">
+      <mat-icon>list</mat-icon>
+      Lista Actividad
+    </button>
+
+    <button mat-menu-item routerLink="/actividad/registrar-actualizar">
+      <mat-icon>add</mat-icon>
+      Registrar Actividad
+    </button>
+  </mat-menu>
+
+  <mat-menu #menuUsuario="matMenu">
+    <button mat-menu-item routerLink="/usuario/listar-usuario">
+      <mat-icon>list</mat-icon>
+      Lista Usuario
+    </button>
+
+    <button mat-menu-item routerLink="/usuario/registrar-usuario">
+      <mat-icon>add</mat-icon>
+      Registrar Usuario
+    </button>
+  </mat-menu>
+
+  <mat-menu #menuAImagenes="matMenu">
+    <button mat-menu-item routerLink="/aimagenes/listar-imagen">
+      <mat-icon>list</mat-icon>
+      Lista Imagenes
+    </button>
+
+    <button mat-menu-item routerLink="/aimagenes/registrar-imagen">
+      <mat-icon>add</mat-icon>
+      Registrar Imagenes
+    </button>
+  </mat-menu>
+
+</div>
+
+<router-outlet></router-outlet>
