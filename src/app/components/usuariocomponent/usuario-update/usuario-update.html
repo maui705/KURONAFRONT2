@@ -1,0 +1,137 @@
+<div class="container">
+  <div>
+    <h2>Actualizar Usuario</h2>
+  </div>
+
+  <div>
+    <form [formGroup]="form" (ngSubmit)="aceptar()">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="codigo" readonly />
+      </mat-form-field>
+
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="DevMovileApp" formControlName="name">
+
+        <mat-error *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched">
+          El nombre es obligatorio.
+        </mat-error>
+
+        <mat-error *ngIf="form.get('name')?.hasError('maxlength') && form.get('name')?.touched">
+          Máximo 100 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field>
+        <mat-label>Extras</mat-label>
+        <input matInput type="number" formControlName="extras" placeholder="Monto extra">
+
+        <mat-error *ngIf="form.get('extras')?.hasError('required') && form.get('extras')?.touched">
+          La paga extra es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field>
+        <mat-label>Apellido</mat-label>
+        <textarea matInput formControlName="apellido"></textarea>
+
+        <mat-error *ngIf="form.get('apellido')?.hasError('required') && form.get('apellido')?.touched">
+          El apellido es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email">
+
+        <mat-error *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">
+          El email es obligatorio.
+        </mat-error>
+
+        <mat-error *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">
+          Ingrese un email válido.
+        </mat-error>
+      </mat-form-field>
+
+      <div *ngIf="emailCambio()">
+        <p style="color: orange; font-weight: bold;">
+          El correo fue modificado. Debes verificar el nuevo correo antes de actualizar.
+        </p>
+
+        <button mat-raised-button color="primary" type="button" (click)="enviarCodigo()">
+          Enviar código
+        </button>
+
+        <br><br>
+
+        <div *ngIf="codigoEnviado">
+          <mat-form-field>
+            <mat-label>Código de verificación</mat-label>
+            <input matInput formControlName="codigoVerificacion" placeholder="Ingrese el código">
+          </mat-form-field>
+
+          <button mat-raised-button color="accent" type="button" (click)="verificarCodigo()">
+            Verificar código
+          </button>
+        </div>
+
+        <p *ngIf="mensajeVerificacion">
+          {{ mensajeVerificacion }}
+        </p>
+
+        <p *ngIf="correoVerificado" style="color: green; font-weight: bold;">
+          Correo verificado correctamente.
+        </p>
+      </div>
+
+      <br>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+
+        <mat-error *ngIf="form.get('password')?.hasError('required') && form.get('password')?.touched">
+          La contraseña es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field>
+        <mat-label>Fecha de registro</mat-label>
+        <input matInput [value]="form.get('fechaRegistro')?.value | date:'dd/MM/yyyy'" readonly>
+      </mat-form-field>
+
+      <br>
+      <mat-radio-group aria-label="Select an option" formControlName="estado">
+        <mat-radio-button [value]="true">Activo</mat-radio-button>
+        <mat-radio-button [value]="false">Inactivo</mat-radio-button>
+      </mat-radio-group>
+
+      <div class="example-button-row">
+        <button
+          mat-raised-button
+          color="warn"
+          type="submit"
+          [disabled]="emailCambio() && !correoVerificado">
+          Actualizar
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

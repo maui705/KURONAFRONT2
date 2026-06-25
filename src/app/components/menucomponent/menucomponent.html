@@ -1,0 +1,110 @@
+@if (!isHome()) {
+<div class="container">
+ <mat-toolbar class="custom-toolbar">
+  <button matButton class="btn-rojo" [matMenuTriggerFor]="menuUsuario">
+    <mat-icon>android</mat-icon> Usuario
+  </button>
+
+  <button matButton class="btn-rojo" [matMenuTriggerFor]="menuRol">
+    <mat-icon>android</mat-icon> Rol
+  </button>
+
+  <button matButton class="btn-rojo" [matMenuTriggerFor]="menuCosecha">
+    <mat-icon>android</mat-icon> Cosecha
+  </button>
+
+  <button matButton class="btn-rojo" [matMenuTriggerFor]="menuLote">
+    <mat-icon>android</mat-icon> Lote
+  </button>
+
+  <button matButton class="btn-rojo" [matMenuTriggerFor]="menuProcesamiento">
+    <mat-icon>settings</mat-icon> Procesamiento
+  </button>
+
+  <button matButton class="btn-rojo" [matMenuTriggerFor]="menuTipoProcesamiento">
+    <mat-icon>category</mat-icon> Tipo Procesamiento
+  </button>
+
+  <button matButton class="btn-rojo" [matMenuTriggerFor]="menuActividad">
+    <mat-icon>category</mat-icon> Actividad
+  </button>
+
+ <button matButton class="btn-rojo" [matMenuTriggerFor]="menuAImagenes">
+    <mat-icon>category</mat-icon> AImagenes
+  </button>
+ </mat-toolbar>
+
+ <mat-menu #menuUsuario="matMenu">
+    <button mat-menu-item routerLink="/usuario/registrar-usuario">
+      <mat-icon>add</mat-icon> Registrar
+    </button>
+    <button mat-menu-item routerLink="/usuario/listar-usuario">
+      <mat-icon>list</mat-icon> Lista
+    </button>
+ </mat-menu>
+
+ <mat-menu #menuRol="matMenu">
+    <button mat-menu-item routerLink="/rol/registrar-rol">
+      <mat-icon>add</mat-icon> Registrar
+    </button>
+    <button mat-menu-item routerLink="/rol/listar-rol">
+      <mat-icon>list</mat-icon> Lista
+    </button>
+ </mat-menu>
+
+ <mat-menu #menuCosecha="matMenu">
+    <button mat-menu-item routerLink="/cosecha/insertar-cosecha">
+      <mat-icon>add</mat-icon> Registrar
+    </button>
+    <button mat-menu-item routerLink="/cosecha/listar-cosecha">
+      <mat-icon>list</mat-icon> Lista
+    </button>
+ </mat-menu>
+
+ <mat-menu #menuLote="matMenu">
+    <button mat-menu-item routerLink="/lote/insertar-lote">
+      <mat-icon>add</mat-icon> Registrar
+    </button>
+    <button mat-menu-item routerLink="/lote/listar-lote">
+      <mat-icon>list</mat-icon> Lista
+    </button>
+ </mat-menu>
+
+ <mat-menu #menuProcesamiento="matMenu">
+    <button mat-menu-item routerLink="/procesamiento/insertar">
+      <mat-icon>add</mat-icon> Registrar
+    </button>
+    <button mat-menu-item routerLink="/procesamiento/listar">
+      <mat-icon>list</mat-icon> Lista
+    </button>
+ </mat-menu>
+
+ <mat-menu #menuTipoProcesamiento="matMenu">
+    <button mat-menu-item routerLink="/tipoprocesamiento/insertar">
+      <mat-icon>add</mat-icon> Registrar
+    </button>
+    <button mat-menu-item routerLink="/tipoprocesamiento/listar">
+      <mat-icon>list</mat-icon> Lista
+    </button>
+ </mat-menu>
+
+ <mat-menu #menuActividad="matMenu">
+    <button mat-menu-item routerLink="/actividad/registrar-actualizar">
+      <mat-icon>add</mat-icon> Registrar
+    </button>
+    <button mat-menu-item routerLink="/actividad/listar-actividad">
+      <mat-icon>list</mat-icon> Lista
+    </button>
+ </mat-menu>
+
+  <mat-menu #menuAImagenes="matMenu">
+    <button mat-menu-item routerLink="/aimagenes/registrar-imagen">
+      <mat-icon>add</mat-icon> Registrar
+    </button>
+    <button mat-menu-item routerLink="/aimagenes/listar-imagen">
+      <mat-icon>list</mat-icon> Lista
+    </button>
+ </mat-menu>
+
+</div>
+}

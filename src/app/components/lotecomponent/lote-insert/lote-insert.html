@@ -1,0 +1,93 @@
+<div class="container">
+  <div style="text-align: center; margin: 3%">
+    <h2>Registrar Lote</h2>
+  </div>
+
+  <div style="text-align: center; margin: 3%">
+    <form [formGroup]="form" (submit)="aceptar()">
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Ubicacion Lote</mat-label>
+
+        <input matInput formControlName="ubicacion" />
+
+        <mat-error *ngIf="form.get('ubicacion')?.hasError('required')">
+          La ubicación es obligatoria
+        </mat-error>
+
+        <mat-error *ngIf="form.get('ubicacion')?.hasError('pattern')">
+          Solo se permiten letras
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Tamaño</mat-label>
+
+        <input matInput type="number" min="1" formControlName="tamaño" />
+
+        <mat-error *ngIf="form.get('tamaño')?.hasError('required')">
+          El tamaño es obligatorio
+        </mat-error>
+
+        <mat-error *ngIf="form.get('tamaño')?.hasError('min')">
+          El tamaño debe ser mayor a 0
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Variedad de Café</mat-label>
+
+        <mat-select formControlName="variedadCafe">
+          <mat-option value="Arabica">Arabica</mat-option>
+          <mat-option value="Bourbon">Bourbon</mat-option>
+          <mat-option value="Catimor">Catimor</mat-option>
+          <mat-option value="Typica">Typica</mat-option>
+        </mat-select>
+
+        <mat-error *ngIf="form.get('variedadCafe')?.hasError('required')">
+          La variedad de café es obligatoria
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Observacion</mat-label>
+
+        <textarea matInput formControlName="observacion"></textarea>
+
+        <mat-error *ngIf="form.get('observacion')?.hasError('required')">
+          La observación es obligatoria
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Estado</mat-label>
+
+        <mat-select formControlName="estado">
+          <mat-option value="Optimo">Optimo</mat-option>
+          <mat-option value="No optimo">No optimo</mat-option>
+          <mat-option value="En descanso">En descanso</mat-option>
+          <mat-option value="En produccion">En produccion</mat-option>
+        </mat-select>
+
+        <mat-error *ngIf="form.get('estado')?.hasError('required')">
+          El estado es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <div>
+        <button mat-raised-button color="primary" type="submit">Registrar</button>
+      </div>
+    </form>
+  </div>
+</div>

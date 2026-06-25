@@ -1,0 +1,117 @@
+<div class="container">
+  <div>
+    <h2>Actualizar Cosecha</h2>
+  </div>
+  <div>
+    <form [formGroup]="form" (submit)="aceptar()">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="codigo" readonly />
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Cantidad</mat-label>
+
+        <input
+          matInput
+          type="number"
+          min="1"
+          formControlName="cantidad" />
+
+        <mat-error *ngIf="form.get('cantidad')?.hasError('required')">
+          La cantidad es obligatoria
+        </mat-error>
+
+        <mat-error *ngIf="form.get('cantidad')?.hasError('min')">
+          La cantidad debe ser mayor a 0
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Estado de la cosecha</mat-label>
+
+        <mat-select formControlName="estadoCosecha">
+          <mat-option value="Iniciado">Iniciado</mat-option>
+          <mat-option value="En proceso">En proceso</mat-option>
+          <mat-option value="Terminado">Terminado</mat-option>
+        </mat-select>
+
+        <mat-error *ngIf="form.get('estadoCosecha')?.hasError('required')">
+          El estado de la cosecha es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Firma Electronica</mat-label>
+
+        <textarea matInput formControlName="firmaElectronica"></textarea>
+
+        <mat-error *ngIf="form.get('firmaElectronica')?.hasError('required')">
+          La firma electrónica es obligatoria
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Responsable</mat-label>
+
+        <input matInput type="text" formControlName="responsable" />
+
+        <mat-error *ngIf="form.get('responsable')?.hasError('required')">
+          El responsable es obligatorio
+        </mat-error>
+
+        <mat-error *ngIf="form.get('responsable')?.hasError('pattern')">
+          Solo se permiten letras
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Metodos</mat-label>
+
+        <textarea matInput formControlName="metodos"></textarea>
+
+        <mat-error *ngIf="form.get('metodos')?.hasError('required')">
+          Los métodos son obligatorios
+        </mat-error>
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field>
+        <mat-label>Lote ID</mat-label>
+
+        <input
+          matInput
+          type="number"
+          min="1"
+          formControlName="loteId" />
+
+        <mat-error *ngIf="form.get('loteId')?.hasError('required')">
+          El ID del lote es obligatorio
+        </mat-error>
+
+        <mat-error *ngIf="form.get('loteId')?.hasError('min')">
+          El ID del lote debe ser mayor a 0
+        </mat-error>
+      </mat-form-field>
+
+      <div class="example-button-row">
+        <button matButton="elevated">
+          Actualizar
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
