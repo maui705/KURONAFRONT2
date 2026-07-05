@@ -1,7 +1,10 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from '@angular/common/http';
 import { Actividad } from "../models/Actividad";
 import { environment } from "../../environments/environment.development";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { QuantityActividadUsuario } from "../models/QuantityActividadUsuario";
+import { QuantityActividadLote } from "../models/QuantityActividadLote";
 
 const base_url = environment.base
 @Injectable({
@@ -24,5 +27,11 @@ export class Actividadservice {
   }
   update(a: Actividad) {
     return this.http.put(`${this.url}/actualizar-actividad`, a, { responseType: 'text' })
+  }
+  getQuantityByActividadLote(): Observable<QuantityActividadLote[]> {
+    return this.http.get<QuantityActividadLote[]>(`${this.url}/cantidad-actividad-lote`);
+  }
+   getQuantityByActividadUsuario(): Observable<QuantityActividadUsuario[]> {
+    return this.http.get<QuantityActividadUsuario[]>(`${this.url}/cantidad-actividad-usuario`);
   }
 }

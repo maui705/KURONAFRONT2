@@ -32,6 +32,13 @@ import { Aimagenescomponent } from './components/aimagenescomponent/aimagenescom
 import { AimagenesList } from './components/aimagenescomponent/aimagenes-list/aimagenes-list';
 import { AimagenesInsert } from './components/aimagenescomponent/aimagenes-insert/aimagenes-insert';
 import { AimagenesUpdate } from './components/aimagenescomponent/aimagenes-update/aimagenes-update';
+import { ReportQuantityCosecha } from './components/report-quantity-cosecha/report-quantity-cosecha';
+import { ReportQuantityLote } from './components/report-quantity-lote/report-quantity-lote';
+import { AimagenesBuscarFormato } from './components/aimagenescomponent/aimagenes-buscar-formato/aimagenes-buscar-formato';
+import { Reporte1 } from './components/aimagenescomponent/reporte1/reporte1';
+import { BuscarDefecto } from './components/aimagenescomponent/buscar-defecto/buscar-defecto';
+import { ReportActividadLote } from './components/actividadcomponent/report-actividad-lote/report-actividad-lote';
+import { ReportActividadUsuario } from './components/actividadcomponent/report-actividad-usuario/report-actividad-usuario';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'homes', pathMatch: 'full' },
@@ -42,8 +49,9 @@ export const routes: Routes = [
     children: [
       { path: 'listar-usuario', component: UsuarioList },
       { path: 'registrar-usuario', component: UsuarioInsert },
-      { path: 'actualizar-usuario/:id', component: UsuarioUpdate }
-    ]
+      { path: 'actualizar-usuario/:id', component: UsuarioUpdate },
+
+    ],
   },
   {
     path: 'rol',
@@ -51,8 +59,8 @@ export const routes: Routes = [
     children: [
       { path: 'listar-rol', component: RolList },
       { path: 'registrar-rol', component: RolInsert },
-      { path: 'actualizar-rol/:id', component: RolUpdate }
-    ]
+      { path: 'actualizar-rol/:id', component: RolUpdate },
+    ],
   },
   {
     path: 'cosecha',
@@ -60,8 +68,9 @@ export const routes: Routes = [
     children: [
       { path: 'listar-cosecha', component: CosechaList },
       { path: 'insertar-cosecha', component: CosechaInsert },
-      { path: 'actualizar-cosecha/:id', component: CosechaUpdate }
-    ]
+      { path: 'actualizar-cosecha/:id', component: CosechaUpdate },
+      { path: 'reporte-cosecha', component: ReportQuantityCosecha },
+    ],
   },
   {
     path: 'lote',
@@ -69,8 +78,9 @@ export const routes: Routes = [
     children: [
       { path: 'listar-lote', component: LoteList },
       { path: 'insertar-lote', component: LoteInsert },
-      { path: 'actualizar-lote/:id', component: LoteUpdate }
-    ]
+      { path: 'actualizar-lote/:id', component: LoteUpdate },
+      { path: 'reporte-lote', component: ReportQuantityLote },
+    ],
   },
   {
     path: 'procesamiento',
@@ -78,8 +88,8 @@ export const routes: Routes = [
     children: [
       { path: 'insertar', component: ProcesamientoInsert },
       { path: 'listar', component: ProcesamientoList },
-      { path: 'editar/:id', component: ProcesamientoUpdate }
-    ]
+      { path: 'editar/:id', component: ProcesamientoUpdate },
+    ],
   },
   {
     path: 'tipoprocesamiento',
@@ -87,34 +97,30 @@ export const routes: Routes = [
     children: [
       { path: 'insertar', component: TipoProcesamientoInsert },
       { path: 'listar', component: TipoProcesamientoList },
-      { path: 'editar/:id', component: TipoProcesamientoUpdate }
-    ]
+      { path: 'editar/:id', component: TipoProcesamientoUpdate },
+    ],
   },
   {
-    path:'actividad',
-    component:actividadcomponent,
-    children:[
-      { path:'listar-actividad',  component:ActividadList },
-      { path:'registrar-actualizar',  component:ActividadInsert },
-      { path:'actualizar-actualizar/:id', component:ActividadUpdate }
-    ]
-  },
+  path: 'actividad',
+  component: actividadcomponent,
+  children: [
+    { path: 'listar-actividad', component: ActividadList },
+    { path: 'registrar-actualizar', component: ActividadInsert },
+    { path: 'actualizar-actualizar/:id', component: ActividadUpdate },
+    { path: 'reporte-actividad-lote', component: ReportActividadLote },
+    { path: 'reporte-actividad-usuario', component: ReportActividadUsuario },
+  ],
+},
   {
     path: 'aimagenes',
     component: Aimagenescomponent,
     children: [
-      {
-        path: 'listar-imagen',
-        component: AimagenesList
-      },
-      {
-        path: 'registrar-imagen',
-        component: AimagenesInsert
-      },
-      {
-        path: 'actualizar-imagen/:id',
-        component: AimagenesUpdate
-      }
-    ]
-  }
+      { path: 'listar-imagen', component: AimagenesList},
+      { path: 'registrar-imagen', component: AimagenesInsert},
+      { path: 'actualizar-imagen/:id', component: AimagenesUpdate },
+      { path: 'buscar-formato', component: AimagenesBuscarFormato },
+      { path: 'reporte1', component: Reporte1 },
+      { path: 'buscar-defecto', component: BuscarDefecto }
+    ],
+  },
 ];
