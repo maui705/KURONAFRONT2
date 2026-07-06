@@ -1,0 +1,67 @@
+/* Fondo de la página */
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f4f6f9;
+  padding: 30px;
+}
+
+/* Contenedor principal */
+.report-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Título */
+h2 {
+  text-align: center;
+  color: #c62828;
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* Tarjeta del gráfico */
+.chart-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, .12);
+  transition: .3s;
+}
+
+.chart-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(0,0,0,.18);
+}
+
+/* Canvas */
+canvas {
+  width: 100% !important;
+  max-height: 500px;
+}
+
+/* Mensaje cuando no hay datos */
+.no-data {
+  text-align: center;
+  color: #888;
+  font-size: 20px;
+  padding: 60px;
+}
+
+/* Responsive */
+@media (max-width:768px){
+
+  :host{
+    padding:15px;
+  }
+
+  h2{
+    font-size:26px;
+  }
+
+  .chart-card{
+    padding:20px;
+  }
+
+}

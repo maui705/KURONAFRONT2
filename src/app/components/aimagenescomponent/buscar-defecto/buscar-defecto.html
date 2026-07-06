@@ -1,0 +1,37 @@
+<div class="list-container">
+    <div class="header-section">
+        <h2>Buscar por Palabra Clave en Análisis de IA</h2>
+    </div>
+
+    <div class="search-container">
+        <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Ej: mancha, saludable, roya...</mat-label>
+            <input matInput [(ngModel)]="palabraBuscada" (keyup.enter)="buscar()" placeholder="Escribe un defecto...">
+            <button matSuffix mat-icon-button (click)="buscar()" color="warn">
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div *ngIf="busquedaRealizada && listaResultados.length === 0" class="no-data">
+        No se detectaron imágenes que contengan la palabra <strong>'{{ palabraBuscada }}'</strong> en su análisis.
+    </div>
+
+    <div *ngIf="listaResultados.length > 0" class="cards-grid">
+        <mat-card class="analisis-card" *ngFor="let element of listaResultados">
+            <mat-card-header>
+                <mat-card-title>ID Lote de la imagen: {{ element.loteId }}</mat-card-title>
+                <mat-card-subtitle>
+                    Fecha de Análisis: {{ element.fechaAnalisis | date:'dd/MM/yyyy' }}
+                </mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content class="card-content">
+                <h4 [ngClass]="{'texto-activo': element.estado, 'texto-inactivo': !element.estado}">
+                    Análisis IA:
+                </h4>
+                <p>{{ element.defectosEncontrados }}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

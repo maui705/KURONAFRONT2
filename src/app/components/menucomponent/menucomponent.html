@@ -1,0 +1,231 @@
+@if (verificar()) {
+  <div class="container">
+    <mat-toolbar class="custom-toolbar">
+
+      <button mat-button [routerLink]="['/homes']" class="btn-rojo">
+        <mat-icon>home</mat-icon>Home
+      </button>
+
+      @if (isADMIN()) {
+      <button matButton class="btn-rojo" [matMenuTriggerFor]="menuUsuario">
+        <mat-icon>android</mat-icon> Usuario
+      </button>
+      <button matButton class="btn-rojo" [matMenuTriggerFor]="menuReportes">
+        <mat-icon>analytics</mat-icon> Reportes
+      </button>
+      }
+
+      
+      @if (isADMIN()) {
+      <button matButton class="btn-rojo" [matMenuTriggerFor]="menuRol">
+        <mat-icon>android</mat-icon> Rol
+      </button>
+      }
+
+
+      @if (isADMIN() || isAGRI()) {
+      <button matButton class="btn-rojo" [matMenuTriggerFor]="menuCosecha">
+        <mat-icon>android</mat-icon> Cosecha
+      </button>
+      }
+
+
+      @if (isADMIN() || isAGRI()) {
+      <button matButton class="btn-rojo" [matMenuTriggerFor]="menuLote">
+        <mat-icon>android</mat-icon> Lote
+      </button>
+      }
+
+
+      @if (isING() || isADMIN()) {
+      <button matButton class="btn-rojo" [matMenuTriggerFor]="menuProcesamiento">
+        <mat-icon>settings</mat-icon> Procesamiento
+      </button>
+      }
+
+
+      @if (isADMIN() || isING()) {
+      <button matButton class="btn-rojo" [matMenuTriggerFor]="menuTipoProcesamiento">
+        <mat-icon>category</mat-icon> Tipo Procesamiento
+      </button>
+      }
+
+
+      @if (isADMIN() || isAGRI()) {
+      <button matButton class="btn-rojo" [matMenuTriggerFor]="menuActividad">
+        <mat-icon>category</mat-icon> Actividad
+      </button>
+      }
+
+      @if (isADMIN() || isAGRI()) {
+      <button matButton class="btn-rojo" [matMenuTriggerFor]="menuAImagenes">
+        <mat-icon>category</mat-icon> AImagenes
+      </button>
+      }
+      <span class="spacer"> </span>
+
+      <button mat-button [matMenuTriggerFor]="menuSalir"><mat-icon>person</mat-icon>Usuario</button>
+
+    </mat-toolbar>
+
+
+
+    <mat-menu #menuReportes="matMenu">
+      <button mat-menu-item routerLink="/cosecha/reporte-cosecha">
+        <mat-icon>bar_chart</mat-icon>
+        Reporte Cosecha
+      </button>
+
+      <button mat-menu-item routerLink="/lote/reporte-lote">
+        <mat-icon>bar_chart</mat-icon>
+        Reporte Lote
+      </button>
+
+      <button mat-menu-item [matMenuTriggerFor]="miniMenuImagenes">
+        <mat-icon>bar_chart</mat-icon>
+        Reporte Imágenes
+      </button>
+
+      <button mat-menu-item [matMenuTriggerFor]="miniMenuActividades">
+        <mat-icon>bar_chart</mat-icon>
+        Reporte Actividades
+      </button>
+
+      <button mat-menu-item [matMenuTriggerFor]="miniMenuUsuarios">
+        <mat-icon>bar_chart</mat-icon>
+        Reporte Usuarios
+      </button>
+    </mat-menu>
+
+    <mat-menu #miniMenuActividades="matMenu">
+
+      <button mat-menu-item routerLink="/actividad/reporte-actividad-usuario">
+        <mat-icon>bar_chart</mat-icon>
+        Reporte Actividad por Usuario
+      </button>
+
+      <button mat-menu-item routerLink="/actividad/reporte-actividad-lote">
+        <mat-icon>bar_chart</mat-icon>
+        Reporte Actividad por Lote
+      </button>
+     
+    </mat-menu>
+
+    <mat-menu #miniMenuImagenes="matMenu">
+      <button mat-menu-item routerLink="/aimagenes/reporte1">
+        <mat-icon>insert_chart</mat-icon>
+        Cantidad de Lotes
+      </button>
+      
+      <button mat-menu-item routerLink="/aimagenes/buscar-formato">
+        <mat-icon>search</mat-icon>
+        Búsqueda por Formato
+      </button>
+      
+      <button mat-menu-item routerLink="/aimagenes/buscar-defecto">
+        <mat-icon>manage_search</mat-icon>
+        Búsqueda por Defecto
+      </button>
+    </mat-menu>
+
+    
+    <mat-menu #miniMenuUsuarios="matMenu">
+
+      <button mat-menu-item routerLink="/usuario/cantidad-usuario-rol">
+        <mat-icon>bar_chart</mat-icon>
+        Reporte Usuarios por Rol
+      </button>
+
+      <button mat-menu-item routerLink="/usuario/buscar-pagos-usuario">
+        <mat-icon>bar_chart</mat-icon>
+        Reporte Pagos por Usuario
+      </button>
+     
+    </mat-menu>
+    
+
+    
+
+    <mat-menu #menuUsuario="matMenu">
+      <button mat-menu-item routerLink="/usuario/registrar-usuario">
+        <mat-icon>add</mat-icon> Registrar
+      </button>
+      <button mat-menu-item routerLink="/usuario/listar-usuario">
+        <mat-icon>list</mat-icon> Lista
+      </button>
+    </mat-menu>
+
+    <mat-menu #menuRol="matMenu">
+      <button mat-menu-item routerLink="/rol/registrar-rol">
+        <mat-icon>add</mat-icon> Registrar
+      </button>
+      <button mat-menu-item routerLink="/rol/listar-rol">
+        <mat-icon>list</mat-icon> Lista
+      </button>
+    </mat-menu>
+
+    <mat-menu #menuCosecha="matMenu">
+      <button mat-menu-item routerLink="/cosecha/insertar-cosecha">
+        <mat-icon>add</mat-icon> Registrar
+      </button>
+      <button mat-menu-item routerLink="/cosecha/listar-cosecha">
+        <mat-icon>list</mat-icon> Lista
+      </button>
+    </mat-menu>
+
+    <mat-menu #menuLote="matMenu">
+      <button mat-menu-item routerLink="/lote/insertar-lote">
+        <mat-icon>add</mat-icon> Registrar
+      </button>
+      <button mat-menu-item routerLink="/lote/listar-lote">
+        <mat-icon>list</mat-icon> Lista
+      </button>
+    </mat-menu>
+
+    <mat-menu #menuProcesamiento="matMenu">
+      <button mat-menu-item routerLink="/procesamiento/insertar">
+        <mat-icon>add</mat-icon> Registrar
+      </button>
+      <button mat-menu-item routerLink="/procesamiento/listar">
+        <mat-icon>list</mat-icon> Lista
+      </button>
+    </mat-menu>
+
+    <mat-menu #menuTipoProcesamiento="matMenu">
+      <button mat-menu-item routerLink="/tipoprocesamiento/insertar">
+        <mat-icon>add</mat-icon> Registrar
+      </button>
+      <button mat-menu-item routerLink="/tipoprocesamiento/listar">
+        <mat-icon>list</mat-icon> Lista
+      </button>
+    </mat-menu>
+
+    <mat-menu #menuActividad="matMenu">
+      <button mat-menu-item routerLink="/actividad/registrar-actualizar">
+        <mat-icon>add</mat-icon> Registrar
+      </button>
+      <button mat-menu-item routerLink="/actividad/listar-actividad">
+        <mat-icon>list</mat-icon> Lista
+      </button>
+    </mat-menu>
+
+    <mat-menu #menuAImagenes="matMenu">
+      <button mat-menu-item routerLink="/aimagenes/registrar-imagen">
+        <mat-icon>add</mat-icon> Registrar
+      </button>
+      <button mat-menu-item routerLink="/aimagenes/listar-imagen">
+        <mat-icon>list</mat-icon> Lista
+      </button>
+    </mat-menu>
+    <mat-menu #menuSalir="matMenu">
+      <button mat-menu-item routerLink="/login" (click)="cerrar()">
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar sesión</span>
+      </button>
+      <button mat-menu-item>
+        Rol:
+        <span>{{ role }}</span>
+      </button>
+    </mat-menu>
+  </div>
+}

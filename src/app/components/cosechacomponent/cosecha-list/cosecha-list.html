@@ -1,0 +1,61 @@
+<div class="container">
+  <h2>Lista de cosechas</h2>
+
+  <ng-container *ngIf="dataSource.connect() | async as cosechas">
+    <div class="cards-container" *ngIf="cosechas.length > 0; else sinDatos">
+      <mat-card class="item-card" *ngFor="let element of cosechas">
+        <mat-card-content>
+          <h3>{{ element.responsable }}</h3>
+
+          <p>
+            <strong>Cantidad:</strong>
+            {{ element.cantidad }}
+          </p>
+
+          <p>
+            <strong>Estado cosecha:</strong>
+            {{ element.estadoCosecha }}
+          </p>
+
+          <p>
+            <strong>Firma electrónica:</strong>
+            {{ element.firmaElectronica }}
+          </p>
+
+          <p>
+            <strong>Métodos:</strong>
+            {{ element.metodos }}
+          </p>
+
+          <p>
+            <strong>Ubicación:</strong>
+            {{ obtenerUbicacion(element.loteId) }}
+          </p>
+        </mat-card-content>
+
+        <mat-card-actions class="acciones">
+          <button mat-button color="warn" (click)="eliminar(element.idCosecha)">
+            <mat-icon>delete</mat-icon>
+            Eliminar
+          </button>
+
+          <button
+            mat-button
+            color="primary"
+            [routerLink]="['/cosecha/actualizar-cosecha', element.idCosecha]"
+          >
+            <mat-icon>edit</mat-icon>
+            Actualizar
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </ng-container>
+
+  <ng-template #sinDatos>
+    <p class="mensaje-vacio">No hay cosechas registradas.</p>
+  </ng-template>
+
+  <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+  </mat-paginator>
+</div>

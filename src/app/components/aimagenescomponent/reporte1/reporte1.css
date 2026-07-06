@@ -1,0 +1,54 @@
+.reporte-container {
+    max-width: 900px; /* Evita que ocupe el 100% de la pantalla */
+    margin: 40px auto; /* Lo centra horizontalmente */
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08); /* Sombra suave y elegante */
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header-section h2 {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 24px;
+    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #f44336; /* Línea roja que combina con tu menú */
+}
+
+.dashboard-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Espacio entre el gráfico y la tabla */
+}
+
+.chart-container {
+    position: relative;
+    height: 350px;
+    width: 100%;
+}
+.table-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Mejorando la tabla de Angular Material */
+.tabla-elegante {
+    width: 60%; /* Ajusta este porcentaje si la quieres más ancha o más delgada */
+    min-width: 400px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: none !important; 
+}
+th.mat-header-cell {
+    background-color: #fafafa;
+    color: #333;
+    font-size: 15px;
+}

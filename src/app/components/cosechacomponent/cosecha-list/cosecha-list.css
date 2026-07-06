@@ -1,0 +1,64 @@
+.container {
+  width: 90%;
+  margin: 25px auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+
+.item-card {
+  width: 280px;
+  padding: 10px;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.item-card h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.item-card p {
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.acciones {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.acciones button {
+  font-size: 13px;
+}
+
+mat-icon {
+  font-size: 20px;
+}
+
+mat-paginator {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.mensaje-vacio {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 35px;
+}
